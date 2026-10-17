@@ -4,7 +4,7 @@
 
 > For learning only, not financial advice. All companies, people and amounts are fictional.
 
-Built for **HackSprint 2026** (IEEE GTBIT x IEEE DTU), Fintech theme.
+Built for **HackSprint 2026**, Fintech theme.
 
 ## Why we made this
 
