@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoneyQuest - The Game</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional font: if the network is down the page falls back to system fonts. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <script src="fx.js" defer></script>
+</head>
+<body class="pg-game">
+  <nav class="topnav">
+    <a class="logo" href="index.html" aria-label="MoneyQuest home">💰 MoneyQuest</a>
+    <a href="learn.html">Learn</a>
+    <a href="game.html" class="active">Game</a>
+    <a href="tools.html">Tools</a>
+    <a href="bank.html">Bank</a>
+    <a href="glossary.html">Glossary</a>
+  </nav>
+
+  <main class="page game-layout">
+    <!-- Dashboard: hidden until the game starts -->
+    <section id="dashboard" class="card dashboard hidden">
+      <div class="dash-head">
+        <span class="age-pill">🎂 Age <b id="d-age">18</b></span>
+        <span class="dash-title">Your money</span>
+      </div>
+      <div class="stats">
+        <div class="stat stat-net">
+          <div>
+            <span class="label">✨ Net worth</span>
+            <span class="value" id="d-net"></span>
+            <span class="delta" id="dd-net"></span>
+          </div>
+          <svg class="spark" viewBox="0 0 120 40" preserveAspectRatio="none" aria-hidden="true">
+            <path id="spark-area" class="spark-fill"></path>
+            <path id="spark-line"></path>
+          </svg>
+        </div>
+        <div class="stat"><span class="label">💵 Cash</span><span class="value" id="d-cash"></span><span class="delta" id="dd-cash"></span></div>
+        <div class="stat"><span class="label">🏦 Savings</span><span class="value" id="d-savings"></span><span class="delta" id="dd-savings"></span></div>
+        <div class="stat"><span class="label">🔒 FD</span><span class="value" id="d-fd"></span><span class="delta" id="dd-fd"></span></div>
+        <div class="stat"><span class="label">📈 SIP value</span><span class="value" id="d-sip"></span><span class="delta" id="dd-sip"></span></div>
+        <div class="stat"><span class="label">💳 Debt</span><span class="value" id="d-debt"></span><span class="delta" id="dd-debt"></span></div>
+      </div>
+      <!-- Credit score gauge (300-900). fx.js moves the needle and colour. -->
+      <div class="gauge" id="gauge">
+        <svg viewBox="0 -14 200 126" aria-hidden="true">
+          <path class="g-track" d="M 20 96 A 80 80 0 0 1 180 96" pathLength="100"></path>
+          <path class="g-arc" id="g-arc" d="M 20 96 A 80 80 0 0 1 180 96" pathLength="100"></path>
+          <g class="g-needle-g" id="g-needle"><line class="g-needle" x1="100" y1="96" x2="100" y2="40"></line><circle class="g-hub" cx="100" cy="96" r="7"></circle></g>
+          <text class="g-tick" x="20" y="111">300</text>
+          <text class="g-tick" x="100" y="-4">600</text>
+          <text class="g-tick" x="180" y="111">900</text>
+        </svg>
+        <div class="gauge-read">
+          <span id="credit-value">650</span>
+          <span class="gauge-caption">Credit score <span id="credit-label"></span></span>
+        </div>
+        <span id="credit-marker" hidden></span>
+      </div>
+
+      <!-- Net worth over time -->
+      <div class="chart-wrap">
+        <div class="chart-head"><span>📈 Net worth over time</span><span class="note">one point per step</span></div>
+        <div class="chart" id="chart">
+          <svg id="chart-svg" viewBox="0 0 560 150" aria-hidden="true">
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color: var(--saffron)" stop-opacity="0.55"></stop>
+                <stop offset="1" style="stop-color: var(--coral)" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <path id="chart-area" fill="url(#areaGrad)"></path>
+            <path id="chart-line" pathLength="1"></path>
+          </svg>
+          <span class="chart-dot" id="chart-dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The game draws every screen (start, chapter card, turn, result...) in here -->
+    <section id="screen" class="card screen"></section>
+  </main>
+
+  <footer>For learning only, not financial advice. All amounts are fictional.</footer>
+
+  <script src="glossary.js"></script>
+  <script src="turns.js"></script>
+  <script src="lessons.js"></script>
+  <script src="events.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

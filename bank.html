@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoneyQuest - Practice Bank</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bank.css">
+  <!-- Optional font: if the network is down the page falls back to system fonts. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <script src="fx.js" defer></script>
+</head>
+<body class="pg-bank">
+  <nav class="topnav">
+    <a class="logo" href="index.html" aria-label="MoneyQuest home">💰 MoneyQuest</a>
+    <a href="learn.html">Learn</a>
+    <a href="game.html">Game</a>
+    <a href="tools.html">Tools</a>
+    <a href="bank.html" class="active">Bank</a>
+    <a href="glossary.html">Glossary</a>
+  </nav>
+
+  <!-- bank-core.js builds everything inside this box. The screens register themselves; a missing screen is skipped. -->
+  <div id="bq-app" class="bq-app"></div>
+
+  <script src="glossary.js"></script>
+  <script src="bank-core.js"></script>
+  <script src="bank-screens.js"></script>
+  <script>BQ.start();</script>
+</body>
+</html>

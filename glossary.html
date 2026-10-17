@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoneyQuest - Glossary</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional font: if the network is down the page falls back to system fonts. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <script src="fx.js" defer></script>
+</head>
+<body class="pg-gloss">
+  <nav class="topnav">
+    <a class="logo" href="index.html" aria-label="MoneyQuest home">💰 MoneyQuest</a>
+    <a href="learn.html">Learn</a>
+    <a href="game.html">Game</a>
+    <a href="tools.html">Tools</a>
+    <a href="bank.html">Bank</a>
+    <a href="glossary.html" class="active">Glossary</a>
+  </nav>
+
+  <main class="page">
+    <section class="card">
+      <h1>📖 Glossary</h1>
+      <div class="split">
+        <div class="rail">
+          <p>Simple money words with an Indian example. Search, or pick a topic.</p>
+          <label for="gloss-search">Search</label>
+          <input type="search" id="gloss-search" placeholder="Try SIP, KYC or inflation" autocomplete="off">
+          <div class="chip-row" id="gloss-chips"></div>
+          <p class="note" id="gloss-count"></p>
+        </div>
+        <div class="main-col">
+          <div class="gloss-grid" id="gloss-grid"></div>
+          <p class="center hidden" id="gloss-empty">No terms found. Try a different word.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>For learning only, not financial advice. All amounts are fictional.</footer>
+
+  <script src="glossary.js"></script>
+</body>
+</html>

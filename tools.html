@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoneyQuest - Tools</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional font: if the network is down the page falls back to system fonts. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <script src="fx.js" defer></script>
+</head>
+<body class="pg-tools">
+  <nav class="topnav">
+    <a class="logo" href="index.html" aria-label="MoneyQuest home">💰 MoneyQuest</a>
+    <a href="learn.html">Learn</a>
+    <a href="game.html">Game</a>
+    <a href="tools.html" class="active">Tools</a>
+    <a href="bank.html">Bank</a>
+    <a href="glossary.html">Glossary</a>
+  </nav>
+
+  <main class="page">
+    <div class="chip-row" id="tool-tabs">
+      <button class="filter-chip active" data-show="calc-section">Calculators</button>
+      <button class="filter-chip" data-show="bank-section">Practice Bank</button>
+      <button class="filter-chip" data-show="trading-section">Trading Lab</button>
+    </div>
+
+    <section class="card" id="calc-section">
+      <h1>🧮 Calculators</h1>
+      <p>Pick a calculator and change the numbers. Results update as you type.</p>
+      <div class="chip-row" id="calc-tabs"></div>
+      <div id="calc-panel"></div>
+      <p class="note">For learning only, not financial advice. Rates and amounts here are made-up examples, not current rates.</p>
+    </section>
+
+    <!-- trading.js fills the Trading Lab section -->
+    <section class="card hidden" id="bank-section">
+      <h1>🏦 Practice Bank</h1>
+      <p>A full practice net-banking app: open an account, send UPI payments, use cards, deposits, loans and bills, and spot scams. All money is fictional.</p>
+      <a class="btn" href="bank.html">Open the Practice Bank →</a>
+      <p class="note">For learning only, not financial advice.</p>
+    </section>
+    <section class="card hidden" id="trading-section"></section>
+  </main>
+
+  <footer>For learning only, not financial advice. All amounts are fictional.</footer>
+
+  <script src="calculators.js"></script>
+  <script src="trading.js"></script>
+  <script>
+    // Switches between the Calculators, Practice Bank and Trading Lab sections.
+    document.querySelectorAll("#tool-tabs .filter-chip").forEach(function (tab) {
+      tab.onclick = function () {
+        document.querySelectorAll("#tool-tabs .filter-chip").forEach(function (t) { t.classList.toggle("active", t === tab); });
+        ["calc-section", "bank-section", "trading-section"].forEach(function (id) {
+          document.getElementById(id).classList.toggle("hidden", id !== tab.dataset.show);
+        });
+      };
+    });
+  </script>
+</body>
+</html>
